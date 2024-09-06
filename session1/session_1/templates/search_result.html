@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block title %}Search Result{% endblock %} {% block
+content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Search Result</h1>
+  <div class="card p-4 shadow-sm">
+    {% if student %}
+    <div class="card-body">
+      <h5 class="card-title">Student Details</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>ID:</strong> {{ student.id }}</li>
+        <li class="list-group-item">
+          <strong>Name:</strong> {{ student.name }}
+        </li>
+        <li class="list-group-item"><strong>Age:</strong> {{ student.age }}</li>
+      </ul>
+    </div>
+    {% else %}
+    <div class="alert alert-warning" role="alert">
+      No student found with the given ID.
+    </div>
+    {% endif %}
+    <a href="{{ url_for('students_list') }}" class="btn btn-primary mt-3"
+      >Back to Students List</a
+    >
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %}Students List{% endblock %} {% block
+content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Students List</h1>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover shadow-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.age }}</td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="3" class="text-center text-muted">
+            No students available.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center mt-3">
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+  </div>
+</div>
+{% endblock %}

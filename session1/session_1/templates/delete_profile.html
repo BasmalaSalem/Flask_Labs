@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block title %}Delete Profile{% endblock %} {% block
+content %}
+<div class="row justify-content-center mt-5">
+  <div class="col-md-6">
+    <h2 class="text-center">Delete Profile</h2>
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">
+          Are you sure you want to delete your profile,
+          <strong>{{ user.username }}</strong>? This action cannot be undone.
+        </p>
+        <form action="{{ url_for('delete_profile') }}" method="POST">
+          <button type="submit" class="btn btn-danger">Delete Profile</button>
+          <a href="{{ url_for('profile') }}" class="btn btn-secondary"
+            >Cancel</a
+          >
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
